@@ -1,20 +1,44 @@
 server:
   port: 9191
   
+#spring:
+#  application:
+#    name: API-GATEWAY
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: HOSPITAL-SERVICE
+#          uri: lb://HOSPITAL-SERVICE
+#          predicates:
+#            - Path=/hospital/**
+#        - id: PATIENT-SERVICE
+#          uri: lb://PATIENT-SERVICE
+#          predicates:
+#            - Path=/patient/** 
+#            
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    hostname: localhost  
+    
 spring:
   application:
     name: API-GATEWAY
   cloud:
     gateway:
       routes:
-        - id: HOSPITAL-SERVICE
-          uri: lb://HOSPITAL-SERVICE
+        - id: PARKING-LOT
+          uri: lb://PARKING-LOT
           predicates:
-            - Path=/hospital/**
-        - id: PATIENT-SERVICE
-          uri: lb://PATIENT-SERVICE
+            - Path=/parkingLot/**
+        - id: PARKING-SLOT
+          uri: lb://PARKING-SLOT
           predicates:
-            - Path=/patient/** 
+            - Path=/parkingSlot/** 
             
 eureka:
   client:
@@ -23,4 +47,4 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
   instance:
-    hostname: localhost                    
+    hostname: localhost                         
